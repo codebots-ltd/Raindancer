@@ -48,9 +48,9 @@ Disclaimer: this code is "AS IS" and for educational purpose only.
 // Select the configuration you want to use. Only one can be true. 
 // If you develop the software, you are responsible, that the changes compiles with all configurations.
 
-#define ARDUMOWER_CHASSIS  false
+#define ARDUMOWER_CHASSIS  true
 #define PARANELLO_CHASSIS  false
-#define RAINDANCER_CHASSIS true
+#define RAINDANCER_CHASSIS false
 #define TEST_ON_DUE_ONLY   false
 
 //======================================================================================================================
@@ -67,16 +67,16 @@ Disclaimer: this code is "AS IS" and for educational purpose only.
 #define CONF_NATIVE_USB_SPEED           115200 // Speed for native USB port
 
 #define CONF_DISABLE_BT                 false
-#define CONF_DISABLE_WAN                true
-#define CONF_DISABLE_GPS                true   
+#define CONF_DISABLE_WAN                false
+#define CONF_DISABLE_GPS                true
 #define CONF_DISABLE_NATIVE_USB         true
 
 #define CONF_ENABLEWATCHDOG             true   // Set to false to disable Watchdog. true to enable.
 
-#define CONF_ENCTICKSPERREVOLUTION		1060.0f // Count of positive AND negativ encoder flanks per one revolution at the DUE pin!!!
-#define CONF_RADUMFANG_CM				78.54 // Wheel circumfence in cm original ardumower: 78.54f 
+#define CONF_ENCTICKSPERREVOLUTION		625.0f // Count of positive AND negativ encoder flanks per one revolution at the DUE pin!!!
+#define CONF_RADUMFANG_CM				63.2f // Wheel circumfence in cm original ardumower: 78.54f
 
-#define CONF_MAX_WHEEL_RPM				30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255. 
+#define CONF_MAX_WHEEL_RPM				30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255.
 //#define CONF_MAX_ENCTICKS_PM            (CONF_MAX_WHEEL_RPM*CONF_ENCTICKSPERREVOLUTION) // max encoder ticks per minute when speed is 100%
 // 1060ticks/rev*30rev/minute=31800ticks/min
 
@@ -116,7 +116,7 @@ Disclaimer: this code is "AS IS" and for educational purpose only.
 
 #define CONF_ACTVATE_AUTO_SPIRAL        true
 
-#define CONF_DISABLE_FAST_RETURN        true    // Disables fast retrun 
+#define CONF_DISABLE_FAST_RETURN        true    // Disables fast retrun
 
 #define CONF_DISABLE_CHARGINGSTATION    true    // If set to true, robot don't drive to chargingstation if batttery is low. After bat low, robot drives to perimeter
 // and set error: "bat low". Then you should power of the robot, connect the charging contacts and power on the robot to charge.
@@ -133,18 +133,18 @@ Disclaimer: this code is "AS IS" and for educational purpose only.
 #define CONF_CMD_ENABLE_CONSOLE_FEEDBACK false   // Send back received serial characters on debug interface
 
 
-#define CONF_PER_CORRECTION_ANGLE	    30			// TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire. 
-// Depends on the chassis construction 
+#define CONF_PER_CORRECTION_ANGLE	    30			// TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire.
+// Depends on the chassis construction
 #define CONF_PER_USE_COUNTER_THRESHOLD	200			// If the perimeter magnitude is below this value, use signalCounterL/R to evaluate signal otherwise use magnetude of perimetersignal.
-// This is to make the signal more robust when robot is in the middle of the lawn. 
+// This is to make the signal more robust when robot is in the middle of the lawn.
 #define CONF_PER_SIGNAL_LOST_TIME	    (2000ul)	// (ms)  When no perimetersignal is received on both coils in this timerange, TCheck2PerSignal stops motors until signal is reached again
 
-#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL	(10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.  
-// For example: right coil receives signal and left coil not for this time then after this time motors will be stopped. 
-// because it could be, that the left coil is broken	
+#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL	(10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.
+// For example: right coil receives signal and left coil not for this time then after this time motors will be stopped.
+// because it could be, that the left coil is broken
 
 #define CONF_DRIVE_MAX_CM				10000.0f // 10000cm = 100m  When starting from perimeter or obstaclw the robot drives not more than this distance.
-#define CONF_DRIVE_OVER_PERIMETER_CM	20.0f    // Overrun the perimeter by 20cm 	
+#define CONF_DRIVE_OVER_PERIMETER_CM	20.0f    // Overrun the perimeter by 20cm
 #define CONF_PERIMETER_DRIVE_BACK_CM    40.0f    // After Perimeter overrun drive back x cm
 #define CONF_PERIMETER_DRIVE_BACK_ANGLE 90.0f    // Only drive back if overrun angle is smaller than this x degree. 0 degree is both coils faces forwared perimeter.
 #define CONF_BUMPER_REVERSE_CM          30.0f    // After driving forward and bumnper activated, drive back this cm to get distance from Obstacle.
@@ -261,15 +261,15 @@ const char UBLOX_INIT[] PROGMEM =
 
 #define CONF_DISABLE_BT                 false
 #define CONF_DISABLE_WAN                true
-#define CONF_DISABLE_GPS                false   
+#define CONF_DISABLE_GPS                false
 #define CONF_DISABLE_NATIVE_USB         false
 
 #define CONF_ENABLEWATCHDOG             true   // Set to false to disable Watchdog. true to enable.
 
 #define CONF_ENCTICKSPERREVOLUTION    1010.0f // Count of positive AND negativ encoder flanks per one revolution at the DUE pin!!!
-#define CONF_RADUMFANG_CM       114.66f // Wheel circumfence in cm original ardumower: 78.54f 
+#define CONF_RADUMFANG_CM       114.66f // Wheel circumfence in cm original ardumower: 78.54f
 
-#define CONF_MAX_WHEEL_RPM        35.0f // max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255. 
+#define CONF_MAX_WHEEL_RPM        35.0f // max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255.
 //#define CONF_MAX_ENCTICKS_PM            (CONF_MAX_WHEEL_RPM*CONF_ENCTICKSPERREVOLUTION) // max encoder ticks per minute when speed is 100%
 // 1060ticks/rev*30rev/minute=31800ticks/min
 
@@ -309,7 +309,7 @@ const char UBLOX_INIT[] PROGMEM =
 
 #define CONF_ACTVATE_AUTO_SPIRAL        true
 
-#define CONF_DISABLE_FAST_RETURN        true    // Disables fast retrun 
+#define CONF_DISABLE_FAST_RETURN        true    // Disables fast retrun
 
 #define CONF_DISABLE_CHARGINGSTATION    false    // If set to true, robot don't drive to chargingstation if batttery is low. After bat low, robot drives to perimeter
 // and set error: "bat low". Then you should power of the robot, connect the charging contacts and power on the robot to charge.
@@ -326,18 +326,18 @@ const char UBLOX_INIT[] PROGMEM =
 #define CONF_CMD_ENABLE_CONSOLE_FEEDBACK false   // Send back received serial characters on debug interface
 
 
-#define CONF_PER_CORRECTION_ANGLE     5     // TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire. 
+#define CONF_PER_CORRECTION_ANGLE     5     // TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire.
 // Depends on the chassis construction
 #define CONF_PER_USE_COUNTER_THRESHOLD  200     // If the perimeter magnitude is below this value, use signalCounterL/R to evaluate signal otherwise use magnetude of perimetersignal.
 // This is to make the signal more robust when robot is in the middle of the lawn.
 #define CONF_PER_SIGNAL_LOST_TIME     (2000ul)  // (ms)  When no perimetersignal is received on both coils in this timerange, TCheck2PerSignal stops motors until signal is reached again
 
-#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL  (10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.  
+#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL  (10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.
 // For example: right coil receives signal and left coil not for this time then after this time motors will be stopped.
 // because it could be, that the left coil is broken
 
 #define CONF_DRIVE_MAX_CM       10000.0f // 10000cm = 100m  When starting from perimeter or obstaclw the robot drives not more than this distance.
-#define CONF_DRIVE_OVER_PERIMETER_CM  20.0f    // Overrun the perimeter by 20cm   
+#define CONF_DRIVE_OVER_PERIMETER_CM  20.0f    // Overrun the perimeter by 20cm
 #define CONF_PERIMETER_DRIVE_BACK_CM    10.0f    // After Perimeter overrun drive back x cm
 #define CONF_PERIMETER_DRIVE_BACK_ANGLE 30.0f    // Only drive back if overrun angle is smaller than this x degree. 0 degree is both coils faces forwared perimeter.
 #define CONF_BUMPER_REVERSE_CM          30.0f    // After driving forward and bumnper activated, drive back this cm to get distance from Obstacle.
@@ -445,7 +445,7 @@ const char UBLOX_INIT[] PROGMEM =
 //======================================================================================================================
 #if RAINDANCER_CHASSIS == true
 
-#define DHTTYPE DHT22          // DHT 22  Check out DHT.h for  define types of temperature sensors.     
+#define DHTTYPE DHT22          // DHT 22  Check out DHT.h for  define types of temperature sensors.
 #define CONF_OVERHEATING_TEMP  50.0f   // if this temperature is measured, robot shuts down the complete power for security
 
 #define CONF_PC_SERIAL_SPEED			115200 // Speed serial consol
@@ -462,9 +462,9 @@ const char UBLOX_INIT[] PROGMEM =
 #define CONF_ENABLEWATCHDOG             true   // Set to false to disable Watchdog. true to enable.
 
 #define CONF_ENCTICKSPERREVOLUTION		1060.0f // Count of positive AND negativ encoder flanks per one revolution at the DUE pin!!!
-#define CONF_RADUMFANG_CM				80.738f // Wheel circumfence in cm original ardumower: 78.54f 
+#define CONF_RADUMFANG_CM				80.738f // Wheel circumfence in cm original ardumower: 78.54f
 
-#define CONF_MAX_WHEEL_RPM				30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255. 
+#define CONF_MAX_WHEEL_RPM				30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255.
 //#define CONF_MAX_ENCTICKS_PM            (CONF_MAX_WHEEL_RPM*CONF_ENCTICKSPERREVOLUTION) // max encoder ticks per minute when speed is 100%
                                                     // 1060ticks/rev*30rev/minute=31800ticks/min
 
@@ -504,7 +504,7 @@ const char UBLOX_INIT[] PROGMEM =
 
 #define CONF_ACTVATE_AUTO_SPIRAL        true
 
-#define CONF_DISABLE_FAST_RETURN        false    // Disables fast retrun 
+#define CONF_DISABLE_FAST_RETURN        false    // Disables fast retrun
 
 #define CONF_DISABLE_CHARGINGSTATION    false    // If set to true, robot don't drive to chargingstation if batttery is low. After bat low, robot drives to perimeter
                                                  // and set error: "bat low". Then you should power of the robot, connect the charging contacts and power on the robot to charge.
@@ -521,18 +521,18 @@ const char UBLOX_INIT[] PROGMEM =
 #define CONF_CMD_ENABLE_CONSOLE_FEEDBACK false   // Send back received serial characters on debug interface
 
 
-#define CONF_PER_CORRECTION_ANGLE	    5			// TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire. 
-                                                    // Depends on the chassis construction 
+#define CONF_PER_CORRECTION_ANGLE	    5			// TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire.
+                                                    // Depends on the chassis construction
 #define CONF_PER_USE_COUNTER_THRESHOLD	200			// If the perimeter magnitude is below this value, use signalCounterL/R to evaluate signal otherwise use magnetude of perimetersignal.
-                                                    // This is to make the signal more robust when robot is in the middle of the lawn. 
+                                                    // This is to make the signal more robust when robot is in the middle of the lawn.
 #define CONF_PER_SIGNAL_LOST_TIME	    (2000ul)	// (ms)  When no perimetersignal is received on both coils in this timerange, TCheck2PerSignal stops motors until signal is reached again
 
-#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL	(10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.  
-                                                      // For example: right coil receives signal and left coil not for this time then after this time motors will be stopped. 
-                                                      // because it could be, that the left coil is broken	
+#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL	(10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.
+                                                      // For example: right coil receives signal and left coil not for this time then after this time motors will be stopped.
+                                                      // because it could be, that the left coil is broken
 
 #define CONF_DRIVE_MAX_CM				10000.0f // 10000cm = 100m  When starting from perimeter or obstaclw the robot drives not more than this distance.
-#define CONF_DRIVE_OVER_PERIMETER_CM	20.0f    // Overrun the perimeter by 20cm 	
+#define CONF_DRIVE_OVER_PERIMETER_CM	20.0f    // Overrun the perimeter by 20cm
 #define CONF_PERIMETER_DRIVE_BACK_CM    10.0f    // After Perimeter overrun drive back x cm
 #define CONF_PERIMETER_DRIVE_BACK_ANGLE 30.0f    // Only drive back if overrun angle is smaller than this x degree. 0 degree is both coils faces forwared perimeter.
 #define CONF_BUMPER_REVERSE_CM          30.0f    // After driving forward and bumnper activated, drive back this cm to get distance from Obstacle.
@@ -639,7 +639,7 @@ const char UBLOX_INIT[] PROGMEM =
 //======================================================================================================================
 #if TEST_ON_DUE_ONLY == true
 
-#define DHTTYPE DHT22          // DHT 22  Check out DHT.h for  define types of temperature sensors.     
+#define DHTTYPE DHT22          // DHT 22  Check out DHT.h for  define types of temperature sensors.
 #define CONF_OVERHEATING_TEMP  50.0f   // if this temperature is measured, robot shuts down the complete power for security
 
 #define CONF_PC_SERIAL_SPEED			115200 // Speed serial consol
@@ -656,9 +656,9 @@ const char UBLOX_INIT[] PROGMEM =
 #define CONF_ENABLEWATCHDOG             true   // Set to false to disable Watchdog. true to enable.
 
 #define CONF_ENCTICKSPERREVOLUTION		1060.0f // Count of positive AND negativ encoder flanks per one revolution at the DUE pin!!!
-#define CONF_RADUMFANG_CM				80.738f // Wheel circumfence in cm original ardumower: 78.54f 
+#define CONF_RADUMFANG_CM				80.738f // Wheel circumfence in cm original ardumower: 78.54f
 
-#define CONF_MAX_WHEEL_RPM				30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255. 
+#define CONF_MAX_WHEEL_RPM				30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255.
 //#define CONF_MAX_ENCTICKS_PM            (CONF_MAX_WHEEL_RPM*CONF_ENCTICKSPERREVOLUTION) // max encoder ticks per minute when speed is 100%
 // 1060ticks/rev*30rev/minute=31800ticks/min
 
@@ -698,7 +698,7 @@ const char UBLOX_INIT[] PROGMEM =
 
 #define CONF_ACTVATE_AUTO_SPIRAL        true
 
-#define CONF_DISABLE_FAST_RETURN        false    // Disables fast retrun 
+#define CONF_DISABLE_FAST_RETURN        false    // Disables fast retrun
 
 #define CONF_DISABLE_CHARGINGSTATION    false    // If set to true, robot don't drive to chargingstation if batttery is low. After bat low, robot drives to perimeter
 // and set error: "bat low". Then you should power of the robot, connect the charging contacts and power on the robot to charge.
@@ -715,18 +715,18 @@ const char UBLOX_INIT[] PROGMEM =
 #define CONF_CMD_ENABLE_CONSOLE_FEEDBACK false   // Send back received serial characters on debug interface
 
 
-#define CONF_PER_CORRECTION_ANGLE	    5			// TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire. 
-// Depends on the chassis construction 
+#define CONF_PER_CORRECTION_ANGLE	    5			// TRotateBothCoilsInside rotates both coils inside. This angle must be rotated further to stand parallel to the perimeter wire.
+// Depends on the chassis construction
 #define CONF_PER_USE_COUNTER_THRESHOLD	200			// If the perimeter magnitude is below this value, use signalCounterL/R to evaluate signal otherwise use magnetude of perimetersignal.
-// This is to make the signal more robust when robot is in the middle of the lawn. 
+// This is to make the signal more robust when robot is in the middle of the lawn.
 #define CONF_PER_SIGNAL_LOST_TIME	    (2000ul)	// (ms)  When no perimetersignal is received on both coils in this timerange, TCheck2PerSignal stops motors until signal is reached again
 
-#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL	(10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.  
-// For example: right coil receives signal and left coil not for this time then after this time motors will be stopped. 
-// because it could be, that the left coil is broken	
+#define CONF_PER_SIGNAL_LOST_TIME_OONECOIL	(10000ul) // same as CONF_PER_SIGNAL_LOST_TIME but the coils are checked separately.
+// For example: right coil receives signal and left coil not for this time then after this time motors will be stopped.
+// because it could be, that the left coil is broken
 
 #define CONF_DRIVE_MAX_CM				10000.0f // 10000cm = 100m  When starting from perimeter or obstaclw the robot drives not more than this distance.
-#define CONF_DRIVE_OVER_PERIMETER_CM	20.0f    // Overrun the perimeter by 20cm 	
+#define CONF_DRIVE_OVER_PERIMETER_CM	20.0f    // Overrun the perimeter by 20cm
 #define CONF_PERIMETER_DRIVE_BACK_CM    10.0f    // After Perimeter overrun drive back x cm
 #define CONF_PERIMETER_DRIVE_BACK_ANGLE 30.0f    // Only drive back if overrun angle is smaller than this x degree. 0 degree is both coils faces forwared perimeter.
 #define CONF_BUMPER_REVERSE_CM          30.0f    // After driving forward and bumnper activated, drive back this cm to get distance from Obstacle.
@@ -832,6 +832,3 @@ const char UBLOX_INIT[] PROGMEM =               // initial configuration for nem
 //======================================================================================================================
 
 #endif //#ifndef _CONFIG_h
-
-
-
