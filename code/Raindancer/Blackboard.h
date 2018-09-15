@@ -39,6 +39,7 @@ Private-use only! (you need to ask for a commercial-use)
 #include "bumperSensor.h"
 #include "mowmotorSensor.h"
 #include "chargeSystem.h"
+#include "drop.h"
 #include "EEPROM.h"
 #include "rainSensor.h"
 #include "DHT.h"
@@ -110,7 +111,7 @@ class Blackboard
 {
 public:
 	Blackboard(TMotorInterface &_motor, TPerimeterThread &_perimeterSenoren, TMowMotorSensor& _mowMotorSensor, TrangeSensor &_rangeSensor,
-		TbumperSensor &_bumperSensor, TbatterieSensor& _batterieSensor, CRotaryEncoder &_encoderL, CRotaryEncoder &_encoderR, TchargeSystem &_chargeSystem, TEEPROM &_eeprom, TrainSensor &_rainSensor, TDHT & _dht) :
+		TbumperSensor &_bumperSensor, TbatterieSensor& _batterieSensor, CRotaryEncoder &_encoderL, CRotaryEncoder &_encoderR, TchargeSystem &_chargeSystem, TEEPROM &_eeprom, TrainSensor &_rainSensor, TDHT & _dht, Tdrop &_drop) :
 		motor(_motor),
 		perimeterSensoren(_perimeterSenoren),
 		rangeSensor(_rangeSensor),
@@ -120,6 +121,7 @@ public:
 		encoderL(_encoderL),
 		encoderR(_encoderR),
 		chargeSystem(_chargeSystem),
+		drop(_drop),
 		eeprom(_eeprom),
 		rainSensor(_rainSensor),
 		dht(_dht)
@@ -219,6 +221,7 @@ public:
     CRotaryEncoder& encoderL;
     CRotaryEncoder& encoderR;
     TchargeSystem& chargeSystem;
+    Tdrop& drop;
 	TEEPROM& eeprom;
 	TrainSensor& rainSensor;
 	TDHT& dht;

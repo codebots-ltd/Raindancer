@@ -51,6 +51,7 @@ Set to true only the correct CHASSIS
 #include "Blackboard.h"
 #include "behaviour.h"
 #include "chargeSystem.h"
+#include "drop.h"
 #include "ui.h"
 #include "printSensordata.h"
 #include "bt.h"
@@ -111,6 +112,8 @@ TrangeSensor rangeSensor;
 TbumperSensor bumperSensor;
 // Charge System
 TchargeSystem chargeSystem;
+// Drop sensor
+Tdrop dropSensor;
 // Print Sensordata for processing
 Thread processingSensorData;
 // Real time clock
@@ -134,7 +137,7 @@ ThreadController controller = ThreadController(); // Thread die vor manuellen mo
 // Behaviour Objects die auf die Threads oben zugreifen
 /*********************************************************************/
 
-Blackboard myBlackboard(motor, perimeterSensoren, mowMotorSensor, rangeSensor, bumperSensor, batterieSensor, encoderL, encoderR, chargeSystem, eeprom, rainSensor, dht);
+Blackboard myBlackboard(motor, perimeterSensoren, mowMotorSensor, rangeSensor, bumperSensor, batterieSensor, encoderL, encoderR, chargeSystem, eeprom, rainSensor, dht, dropSensor);
 TBehaviour myBehaviour(myBlackboard);
 
 
@@ -224,6 +227,9 @@ void setup()
 	chargeSystem.setup();
 	chargeSystem.setInterval(53);
 	//---------------------------------
+	dropSensor.setup();
+	dropSensor.setInterval(53);
+	//---------------------------------
 	processingSensorData.onRun(printSensordata);
 	processingSensorData.setInterval(1001);
 	//---------------------------------
@@ -274,6 +280,8 @@ void setup()
 
 	controller.add(&bumperSensor);
 
+	controller.add(&dropSensor);
+		
 	controller.add(&chargeSystem);
 	controller.add(&processingSensorData);
 

@@ -35,6 +35,7 @@
 #include "behaviour.h"
 #include "bPerimeterTracking.h"
 #include "chargeSystem.h"
+#include "drop.h"
 #include "bRotate.h"
 #include "bt.h"
 #include "adcman.h"
@@ -80,6 +81,8 @@ extern TrangeSensor rangeSensor;
 extern TbumperSensor bumperSensor;
 // Charge System
 extern TchargeSystem chargeSystem;
+// Charge System
+extern Tdrop dropSensor;
 // Rain Sensor
 extern TrainSensor rainSensor;
 
@@ -323,6 +326,10 @@ void cmd_help(int arg_cnt, char **args)
   errorHandler.setInfoNoLog(F("\r\n=== RAIN SENSOR SERVICE ===\r\n"));
   errorHandler.setInfoNoLog(F("rain.config //show config\r\n"));
   errorHandler.setInfoNoLog(F("rain.show   //show sensor value\r\n"));
+  
+
+  errorHandler.setInfoNoLog(F("\r\n=== DROP SENSOR SERVICE ===\r\n"));
+  errorHandler.setInfoNoLog(F("drop.show   //show sensor value\r\n"));
 
   wait = millis();
   while (millis() - wait < 100) executeLoop();
@@ -870,6 +877,11 @@ void cmd_showBattery(int arg_cnt, char **args)
 void cmd_showRain(int arg_cnt, char **args)
 {
   rainSensor.flagShowRainSensor = !rainSensor.flagShowRainSensor;
+}
+
+void cmd_showDrop(int arg_cnt, char **args)
+{
+  dropSensor.flagShowDropSensor = !dropSensor.flagShowDropSensor;
 }
 
 //bber2
@@ -1423,6 +1435,7 @@ void cmd_hideShowing(int arg_cnt, char **args)
   gps.flagShowGPS = false;
   bumperSensor.flagShowBumper = false;
   chargeSystem.flagShowChargeSystem = false;
+  dropSensor.flagShowDropSensor = false;
   motor.flagShowDistance = false;
 
   rainSensor.flagShowRainSensor = false;
@@ -1690,6 +1703,10 @@ void cmd_setup()
   // rain sensor
   cmdAdd((char *)"rain.config", cmd_rain_show_config);
   cmdAdd((char *)"rain.show", cmd_showRain);
+
+  // drop sensor
+  //------------------------------
+  cmdAdd((char *)"drop.show", cmd_showDrop);
 
   // ADC manager
   //------------------------------
