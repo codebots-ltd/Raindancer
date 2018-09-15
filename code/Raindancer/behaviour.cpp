@@ -670,7 +670,7 @@ void TBehaviour::setup()
 // Find Perimeter Behaviour
 //*************************************
 
-    selFindPerimeter.nodeName = (char*)"selCharging";
+    selFindPerimeter.nodeName = (char*)"selFindPerimeter";
 	seqFindPerimeter.nodeName = (char*)"seqFindPerimeter",
     mseqFindPerimeter.nodeName= (char*)"mseqFindPerimeter";
 	conIsOutsidePerimeter.nodeName = (char*)"conIsOutsidePerimeter";
