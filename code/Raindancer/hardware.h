@@ -73,6 +73,8 @@ extern DigitalIn diBumperR;
 extern AnalogIn aiBumper;
 
 
+extern DigitalIn diDropL;
+extern DigitalIn diDropR;
 
 // left wheel motor
 extern DigitalOut doMotorEnable;

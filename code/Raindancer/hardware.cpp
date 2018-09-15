@@ -143,6 +143,8 @@ DigitalOut doChargeEnable(pinChargeRelay);
 DigitalOut doBatteryOffSwitch(pinBatterySwitch);
 
 
+DigitalIn diDropL(pinDropLeft, false);
+DigitalIn diDropR(pinDropRight, false);
 
 DigitalOut doBuzzer(pinBuzzer);
 DigitalOut doMyLED(pinLED);
@@ -303,6 +305,9 @@ void hardwareSetup() {
 
 	diBumperL.setup();
 	diBumperR.setup();
+
+	diDropL.setup();
+	diDropR.setup();
 
 	// left wheel motor
 	doMotorEnable.setup(HIGH);
