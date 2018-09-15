@@ -73,29 +73,29 @@ Disclaimer: this code is "AS IS" and for educational purpose only.
 
 #define CONF_ENABLEWATCHDOG             true   // Set to false to disable Watchdog. true to enable.
 
-#define CONF_ENCTICKSPERREVOLUTION		625.0f // Count of positive AND negativ encoder flanks per one revolution at the DUE pin!!!
+#define CONF_ENCTICKSPERREVOLUTION		615.0f // Count of positive AND negativ encoder flanks per one revolution at the DUE pin!!!
 #define CONF_RADUMFANG_CM				63.2f // Wheel circumfence in cm original ardumower: 78.54f
 
-#define CONF_MAX_WHEEL_RPM				30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255.
+#define CONF_MAX_WHEEL_RPM				57.0f //30.0f	// max revolution per  minute the wheel reaches when speed is 100%. This is at pwm 255.
 //#define CONF_MAX_ENCTICKS_PM            (CONF_MAX_WHEEL_RPM*CONF_ENCTICKSPERREVOLUTION) // max encoder ticks per minute when speed is 100%
 // 1060ticks/rev*30rev/minute=31800ticks/min
 
-#define CONF_MOW_MOT_UNDER_HEAVY_LOAD_ON   45.0f  //If mow motor Watt is over this value, it is assumed that the motor is under heavy load.
-#define CONF_MOW_MOT_UNDER_HEAVY_LOAD_OFF  30.0f  //If the mow moter is under heavy load, the measured watt must come under this value to reset heavy load.
-#define CONF_MOW_MOT_UNDER_LOAD            30.0f  //The mow motor is under load, if this Watt is measured.
+#define CONF_MOW_MOT_UNDER_HEAVY_LOAD_ON   60.0f //45.0f  //If mow motor Watt is over this value, it is assumed that the motor is under heavy load.
+#define CONF_MOW_MOT_UNDER_HEAVY_LOAD_OFF  45.0f //30.0f  //If the mow moter is under heavy load, the measured watt must come under this value to reset heavy load.
+#define CONF_MOW_MOT_UNDER_LOAD            45.0f //30.0f  //The mow motor is under load, if this Watt is measured.
 
-#define CONF_DISTANCE_BETWEEN_WHEELS_CM	36.5f	// Distance where the wheels hits the ground do not measure on top of the wheels!!!
+#define CONF_DISTANCE_BETWEEN_WHEELS_CM	39.5f	// Distance where the wheels hits the ground do not measure on top of the wheels!!!
 #define CONF_MAX_SPIRAL_RADIUS_CM		150.0f
 #define CONF_START_SPIRAL_RADIUS_CM		27.0f
 #define CONF_SPIRAL_SEGMENTS			16.0f
 
-#define CONF_DISTANCE_BETWEEN_COILS_CM	12.0f  // used for calculatin the angle while crossing the perimeter. Used in getDistanceAngleCoilOut()
+#define CONF_DISTANCE_BETWEEN_COILS_CM	7.5f //12.0f  // used for calculatin the angle while crossing the perimeter. Used in getDistanceAngleCoilOut()
 
 #define CONF_LEFT_ENCODER_INVERSE		false
 #define CONF_RIGHT_ENCODER_INVERSE		false
 
-#define CONF_LEFT_COIL_INVERSE          false
-#define CONF_RIGHT_COIL_INVERSE         false
+#define CONF_LEFT_COIL_INVERSE          true
+#define CONF_RIGHT_COIL_INVERSE         true
 
 
 #define CONF_DISABLE_RANGE_SERVICE		true   // Disables my own range sensor running on bumper duino on pinUserSwitch3 => diNearObsacleSensor
